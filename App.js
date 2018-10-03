@@ -9,6 +9,7 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
 import Home from './src/components/home/Home';
+import Navbar from "./src/components/navbar/Navbar";
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -22,6 +23,7 @@ export default class App extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
+        <Navbar />
         <Text style={styles.welcome}>Briome 1.0</Text>
         <Home />
       </View>

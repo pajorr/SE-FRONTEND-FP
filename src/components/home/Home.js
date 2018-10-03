@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Avatar } from 'react-native-elements';
+import {Avatar} from 'react-native-elements';
 
 class Home extends Component {
     render() {
