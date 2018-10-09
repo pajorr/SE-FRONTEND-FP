@@ -1,27 +1,12 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
-import Home from './src/components/home/Home';
-import Navbar from './src/components/navbar/Navbar';
-import Login from './src/components/login/Login';
+import {FeedStack} from './router/config';
 
-export default class App extends Component<Props> {
+export default class App extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <View style={styles.container}>
-            <Navbar />
-        </View>
-            <Home />
-      </View>
+            <FeedStack />
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-});

@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
+    "test": "jest",
+    "phone": "cd C:/Users/Pajor/AppData/Local/Android/Sdk/platform-tools; adb reverse tcp:8081 tcp:8081"
   },
   "dependencies": {
     "@babel/runtime": "^7.1.2",
