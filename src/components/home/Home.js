@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import Navbar from './../navbar/Navbar';
 import {ScrollView, View, Text, Image, StyleSheet} from 'react-native';
 import {Card, ListItem, Button, Icon} from 'react-native-elements';
 
@@ -7,9 +6,6 @@ class Home extends Component {
     render() {
         return (
             <View>
-                <View style={styles.navbar}>
-                    <Navbar />
-                </View>
                 <ScrollView style={styles.card}>
                     <Card
                         title='Weather'
@@ -60,10 +56,6 @@ const styles = StyleSheet.create({
     card: {
         width: '100%',
         alignSelf: 'stretch'
-    },
-
-    navbar: {
-        marginBottom: 60
     }
 });
 

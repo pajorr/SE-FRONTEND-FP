@@ -9,9 +9,9 @@ class Navbar extends Component {
                 <View>
                     <Header
                         leftComponent={{ icon: 'menu', color: '#fff' }}
-                        centerComponent={{ text: 'Home', style: { color: '#fff' } }}
+                        centerComponent={{ text: 'Brome', style: { color: '#fff' } }}
                         rightComponent={{ icon: 'home', color: '#fff' }}
-                        outerContainerStyles={{ backgroundColor: '#000000', width: '100%', position: 'absolute', top: 0}}
+                        outerContainerStyles={{ backgroundColor: '#000000'}}
                     />
                 </View>
         )
