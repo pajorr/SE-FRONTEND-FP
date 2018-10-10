@@ -4,6 +4,7 @@ import Login from "./../src/components/login/Login";
 import Sidebar from "./../src/components/sidebar/Sidebar";
 import Signup from "./../src/components/signup/SignUp";
 import Weather from "./../src/components/weather/Weather";
+import Connections from "./../src/components/connections/Connections";
 
 export const FeedStack = createStackNavigator(
     {
@@ -21,6 +22,10 @@ export const FeedStack = createStackNavigator(
         },
         Weather: {
             screen: Weather,
+            navigationOptions: {header: null}
+        },
+        Connections: {
+            screen: Connections,
             navigationOptions: {header: null}
         }
     },

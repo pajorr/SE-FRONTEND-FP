@@ -35,7 +35,7 @@ class Home extends Component {
                     </Card>
 
                     <Card
-                        title='Reminder'
+                        title='Connections'
                         image={{uri: 'https://media.cuinsight.com/wp-content/uploads/2016/04/bigstock-Business-meeting-in-an-office-21258410.jpg'}}>
                         <Text style={{marginBottom: 10}}>
                             Meeting at 13:25
@@ -44,6 +44,7 @@ class Home extends Component {
                             icon={<Icon name='code' color='#ffffff' />}
                             backgroundColor='#03A9F4'
                             buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0, backgroundColor: '#000000'}}
+                            onPress={() => this.props.navigation.navigate('Connections')}
                             title='VIEW NOW' />
                     </Card>
                 </ScrollView>
