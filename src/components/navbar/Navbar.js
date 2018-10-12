@@ -8,7 +8,7 @@ class Navbar extends Component {
         return (
                 <View>
                     <Header
-                        leftComponent={{ icon: 'menu', color: '#fff' }}
+                        leftComponent={{ icon: 'arrow-forward', color: '#fff' }}
                         centerComponent={{ text: 'Brome', style: { color: '#fff' } }}
                         rightComponent={{ icon: 'home', color: '#fff' }}
                         outerContainerStyles={{ backgroundColor: '#000000'}}

@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {ScrollView, View, Text, Image, StyleSheet} from 'react-native';
 import {Card, ListItem, Button, Icon} from 'react-native-elements';
-import MatIcon from 'react-native-vector-icons/MaterialIcons';
 
 class Connections extends Component {
     render() {
