@@ -45,7 +45,8 @@ class Login extends Component {
                     <Button
                         title='Login'
                         buttonStyle={{
-                            backgroundColor: '#000000'
+                            // backgroundColor: '#000000'
+                        backgroundColor: 'blue'
                         }}
                         onPress={() => this.props.navigation.navigate('Home')}
                     />

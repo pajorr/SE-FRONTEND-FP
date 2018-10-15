@@ -35,6 +35,7 @@ class Home extends Component {
                         icon={<Icon name='code' color='#ffffff' />}
                         backgroundColor='#03A9F4'
                         buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0, backgroundColor: '#000000'}}
+                            onPress={() => this.props.navigation.navigate('Reminder')}
                         title='VIEW NOW' />
                     </Card>
 
