@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
 import Home from './src/components/home/Home';
 import Navbar from './src/components/navbar/Navbar';
+import Music from './src/components/music/Music';
 import Login from './src/components/login/Login';
 
 export default class App extends Component<Props> {
@@ -11,7 +12,7 @@ export default class App extends Component<Props> {
         <View style={styles.container}>
             <Navbar />
         </View>
-            <Home />
+            <Music/>
       </View>
     );
   }
