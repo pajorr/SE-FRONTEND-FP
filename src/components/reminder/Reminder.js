@@ -34,7 +34,7 @@ class Reminder extends Component {
 
                     <Button
                         icon={<Icon name='chevron-left' color='#ffffff' />}
-                        buttonStyle={{backgroundColor: '#b477f9'}}
+                        buttonStyle={{backgroundColor: '#2f2b2b'}}
                         onPress={() => this.props.navigation.navigate('Home')}
                         title='Home' />
 
@@ -125,12 +125,12 @@ const styles = StyleSheet.create({
 
     container: {
         flex: 1,
-        backgroundColor: '#f5e3f9'
+        backgroundColor: '#ffffff'
 
     },
 
     header: {
-        backgroundColor: '#b477f9',
+        backgroundColor: '#2f2b2b',
         flexDirection: 'row',
         padding: 20
     },
@@ -164,7 +164,7 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'row',
         justifyContent: 'space-between',
-        backgroundColor: '#f5e3f9',
+        backgroundColor: '#ffffff',
         padding: 15
     },
 
@@ -182,8 +182,8 @@ const styles = StyleSheet.create({
     },
 
     calendar_border: {
-        borderColor: '#f5e3f9',
-        backgroundColor: '#e9cbef',
+        borderColor: '#ffffff',
+        backgroundColor: '#e8e8e8',
         width: 60,
         height: 60,
         borderWidth: 2
