@@ -1,12 +1,9 @@
 import React, {Component} from 'react';
 import {ScrollView, View, Text, Image, StyleSheet} from 'react-native';
 import {Card, ListItem, Button, Icon, Avatar} from 'react-native-elements';
+import {LoginPage} from "../../../router/config";
 
 class Sidebar extends Component {
-    constructor(props) {
-        super(props)
-    }
-
     render() {
         return(
             <View>
@@ -85,6 +82,6 @@ const list = [
         icon: 'wb-sunny',
         press: "this.props.navigation.navigate('Weather')"
     }
-]
+];
 
 export default Sidebar;

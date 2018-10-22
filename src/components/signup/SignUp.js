@@ -2,8 +2,17 @@ import React, {Component} from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {Input, Button, Avatar} from 'react-native-elements';
 import {View, Text, StyleSheet} from 'react-native';
+import {HandleLogin, HandleRegister} from "../../../router/frisbeeConfig";
 
 class Signup extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            usernameValue: '',
+            passwordValue: '',
+            nameValue: ''
+        }
+    }
     render() {
         return (
             <View style={styles.components}>
@@ -18,6 +27,25 @@ class Signup extends Component {
                                 color='black'
                             />
                         }
+                        ref="usernameValue"
+                        onChangeText={(usernameValue) => this.setState({usernameValue})}
+                        value={this.state.usernameValue}
+                    />
+                </View>
+
+                <View style={styles.input}>
+                    <Input
+                        placeholder='Name'
+                        leftIcon={
+                            <Icon
+                                name='key'
+                                size={24}
+                                color='black'
+                            />
+                        }
+                        ref="nameValue"
+                        onChangeText={(nameValue) => this.setState({nameValue})}
+                        value={this.state.nameValue}
                     />
                 </View>
 
@@ -31,19 +59,9 @@ class Signup extends Component {
                                 color='black'
                             />
                         }
-                    />
-                </View>
-
-                <View style={styles.input}>
-                    <Input
-                        placeholder='Re-enter Password'
-                        leftIcon={
-                            <Icon
-                                name='key'
-                                size={24}
-                                color='black'
-                            />
-                        }
+                        ref="passwordValue"
+                        onChangeText={(passwordValue) => this.setState({passwordValue})}
+                        value={this.state.passwordValue}
                     />
                 </View>
 
@@ -53,10 +71,12 @@ class Signup extends Component {
                         buttonStyle={{
                             backgroundColor: '#000000'
                         }}
-                        onPress={() => this.props.navigation.navigate('Home')}
+                        onPress={(async () => {
+                            await HandleRegister(this.state.usernameValue, this.state.nameValue, this.state.passwordValue);
+                            return this.props.navigation.navigate('Login')
+                        })}
                     />
                 </View>
-
             </View>
         )
     }

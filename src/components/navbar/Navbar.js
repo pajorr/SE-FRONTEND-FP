@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Sidebar from './../sidebar/Sidebar'
+import Sidebar from '../sidebar/Sidebar'
 import {View, Text, Image, StyleSheet} from 'react-native'
 import {Header} from 'react-native-elements';
 

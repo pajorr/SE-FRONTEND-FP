@@ -2,8 +2,18 @@ import React, {Component} from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {Input, Button, Avatar} from 'react-native-elements';
 import {View, Text, StyleSheet} from 'react-native';
+import {HandleLogin} from "../../../router/frisbeeConfig";
 
 class Login extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            usernameValue: '',
+            passwordValue: ''
+        }
+    }
+
+
     render() {
         return (
             <View style={styles.components}>
@@ -17,7 +27,7 @@ class Login extends Component {
 
                 <View style={styles.input}>
                     <Input
-                        placeholder='Username'
+                        placeholder='Email'
                         leftIcon={
                             <Icon
                                 name='user'
@@ -25,6 +35,9 @@ class Login extends Component {
                                 color='black'
                             />
                         }
+                        ref="usernameValue"
+                        onChangeText={(usernameValue) => this.setState({usernameValue})}
+                        value={this.state.usernameValue}
                     />
                 </View>
 
@@ -38,6 +51,9 @@ class Login extends Component {
                             color='black'
                         />
                         }
+                        ref="passwordValue"
+                        onChangeText={(passwordValue) => this.setState({passwordValue})}
+                        value={this.state.passwordValue}
                     />
                 </View>
 
@@ -47,7 +63,12 @@ class Login extends Component {
                         buttonStyle={{
                             backgroundColor: '#000000'
                         }}
-                        onPress={() => this.props.navigation.navigate('Home')}
+                        onPress={(async () => {
+                            console.log()
+                            await HandleLogin(this.state.usernameValue, this.state.passwordValue);
+                            return this.props.navigation.navigate('Home')
+                        })}
+
                     />
                 </View>
 
