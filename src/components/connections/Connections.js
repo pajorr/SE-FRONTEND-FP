@@ -34,7 +34,7 @@ class Connections extends Component {
                         icon={<Icon name='library-music' color='white' />}
                         backgroundColor='#03A9F4'
                         buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0, backgroundColor: '#000000'}}
-                        onPress={() =>this.props.navigation.navigate('Lights')}
+                        onPress={() =>this.props.navigation.navigate('Music')}
                         title='SPOTIFY' />
                 </Card>
             </View>
