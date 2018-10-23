@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import {Input, Button, Avatar} from 'react-native-elements';
-import {View, Text, StyleSheet} from 'react-native';
-import {HandleLogin} from "../../../router/frisbeeConfig";
+import {Input, Button, Avatar, Badge, Tile} from 'react-native-elements';
+import {View, Text, StyleSheet, Image} from 'react-native';
+import {HandleLogin, HandleWeather} from "../../../router/frisbeeConfig";
 
 class Login extends Component {
     constructor(props) {
@@ -17,54 +17,55 @@ class Login extends Component {
     render() {
         return (
             <View style={styles.components}>
-                <Avatar
-                    medium
-                    rounded
-                    source={{uri: "https://dne4i5cb88590.cloudfront.net/invisionpower-com/monthly_2016_11/avatar.thumb.png.c68c113d40702f1cbaf0ff7fbb57ee46.png"}}
-                    onPress={() => console.log("Works!")}
-                    activeOpacity={0.7}
+                <Image style={{height: '40%'}}
+                    source={require('./../../assets/BromeLogo.png')}
+                    resizeMode='contain'
                 />
+
+                <Text h4 style={{paddingRight: 200, color:'#23232b', fontWeight: 'bold'}}>E-MAIL</Text>
 
                 <View style={styles.input}>
                     <Input
-                        placeholder='Email'
+                        underlineColorAndroid='rgba(0,0,0,0)'
                         leftIcon={
                             <Icon
                                 name='user'
-                                size={24}
+                                size={20}
                                 color='black'
                             />
                         }
                         ref="usernameValue"
                         onChangeText={(usernameValue) => this.setState({usernameValue})}
                         value={this.state.usernameValue}
+                        inputContainerStyle={{borderBottomWidth: 0}}
                     />
                 </View>
 
+                <Text h4 style={{paddingRight: 180, color:'#23232b', fontWeight: 'bold'}}>PASSWORD</Text>
+
                 <View style={styles.input}>
                     <Input
-                        placeholder='Password'
                         leftIcon={
                         <Icon
-                            name='key'
-                            size={24}
+                            name='lock'
+                            size={20}
                             color='black'
                         />
                         }
                         ref="passwordValue"
                         onChangeText={(passwordValue) => this.setState({passwordValue})}
                         value={this.state.passwordValue}
+                        inputContainerStyle={{borderBottomWidth: 0}}
                     />
                 </View>
 
                 <View style={styles.button}>
-                    <Button
-                        title='Login'
-                        buttonStyle={{
-                            backgroundColor: '#000000'
+                    <Badge
+                        value={'Login'}
+                        containerStyle={{
+                            backgroundColor: '#e6b7c1'
                         }}
                         onPress={(async () => {
-                            console.log()
                             await HandleLogin(this.state.usernameValue, this.state.passwordValue);
                             return this.props.navigation.navigate('Home')
                         })}
@@ -74,7 +75,7 @@ class Login extends Component {
 
                 <View styles={styles.input}>
                     <Text onPress={() => this.props.navigation.navigate('Signup')}>
-                        Don't have an account? Click here to Sign Up.
+                        Don't have an account? Sign up now!
                     </Text>
                 </View>
             </View>
@@ -84,21 +85,26 @@ class Login extends Component {
 
 const styles = StyleSheet.create({
    components: {
-       flex: 1,
        justifyContent: 'center',
-       alignItems: 'center'
+       alignItems: 'center',
+       backgroundColor: '#ffffff',
+       height: '100%'
    },
 
    input: {
-       width: '80%',
-       paddingTop: 15
+       width: '70%',
+       height: 50,
+       textAlign: 'center',
+       borderWidth: 2,
+       borderColor: '#82569c',
+       borderRadius: 20,
+       margin: 10
    },
 
     button: {
-       width: '50%',
-        paddingTop: 25,
-        paddingBottom: 25
-    }
+       width: '60%',
+        margin: 10
+    },
 
 });
 export default Login;

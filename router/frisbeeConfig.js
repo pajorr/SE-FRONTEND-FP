@@ -5,7 +5,9 @@ es6promise.polyfill();
 
 const Frisbee = require('frisbee');
 
-export var weatherStatus;
+export var userRes;
+export var weatherRes;
+export var reminderRes;
 
 const api = new Frisbee({
     baseURI: 'http://178.128.62.29/api',
@@ -17,19 +19,26 @@ const api = new Frisbee({
 
 export async function HandleLogin(email, password) {
     try {
-        console.log('starting login');
-        let res = await api.post('/auth/login', {
+        userRes = await api.post('/auth/login', {
             body: {
                 email: email,
                 password: password
             }
         });
-        console.log('response', res.body);
-       // await AsyncStorage.setItem('Token', res.body)
 
-        if (res.err) throw res.err;
+        if (userRes.err) throw userRes.err;
 
        // api.auth(res.body.data.token);
+
+    } catch (err) {
+        throw err;
+    }
+}
+
+export async function HandleLogout() {
+    try {
+        await AsyncStorage.setItem('Token', '');
+        await AsyncStorage.setItem('Name', '');
 
     } catch (err) {
         throw err;
@@ -48,21 +57,6 @@ export async function HandleRegister(email, name, password) {
         console.log('response', res.body);
 
         if (res.err) throw res.err;
-
-    } catch (err) {
-        throw err;
-    }
-}
-
-export async function HandleWeather() {
-    try {
-        let res = await api.post('/owmapi/current-weather', {
-            body: {
-                city: 'jakarta'
-            }
-        });
-        console.log('response', res.body);
-        weatherStatus = res.body;
 
     } catch (err) {
         throw err;
@@ -129,6 +123,129 @@ export async function TelevisionOff() {
         if (res.err) throw res.err;
 
     } catch (err) {
+        throw err;
+    }
+}
+
+export async function MusicPause() {
+    try {
+        let res = await api.get('/spotify/pause', {});
+
+        console.log('response', res.body);
+
+        if (res.err) throw res.err;
+
+    } catch (err) {
+        throw err;
+    }
+}
+
+export async function MusicPlay() {
+    try {
+        let res = await api.get('/spotify/play', {});
+
+        console.log('response', res.body);
+
+        if (res.err) throw res.err;
+
+    } catch (err) {
+        throw err;
+    }
+}
+
+export async function MusicNext() {
+    try {
+        let res = await api.get('/spotify/next', {});
+
+        console.log('response', res.body);
+
+        if (res.err) throw res.err;
+
+    } catch (err) {
+        throw err;
+    }
+}
+
+export async function MusicPrevious() {
+    try {
+        let res = await api.get('/spotify/previous', {});
+
+        console.log('response', res.body);
+
+        if (res.err) throw res.err;
+
+    } catch (err) {
+        throw err;
+    }
+}
+
+export async function GetTrack() {
+    try {
+        let res = await api.get('/spotify/gettrack', {});
+
+        console.log('response', res.body);
+
+        if (res.err) throw res.err;
+
+    } catch (err) {
+        throw err;
+    }
+}
+
+export async function TrackShuffle() {
+    try {
+        let res = await api.put('/spotify/trackShuffle', {});
+
+        console.log('response', res.body);
+
+        if (res.err) throw res.err;
+
+    } catch (err) {
+        throw err;
+    }
+}
+
+export async function TrackRepeat() {
+    try {
+        let res = await api.put('/spotify/trackRepeat', {});
+
+        console.log('response', res.body);
+
+        if (res.err) throw res.err;
+
+    } catch (err) {
+        throw err;
+    }
+}
+
+export async function HandleReminder(id) {
+    try {
+        reminderRes = await api.get('/schedule/all', {
+            body: {
+                user_id : id
+            }
+        });
+        console.log(reminderRes);
+
+        if (reminderRes.err) throw reminderRes.err
+
+    } catch(err){
+        throw err;
+    }
+}
+
+export async function HandleWeather() {
+    try {
+        weatherRes = await api.get('/owmapi/current-weather', {
+            body: {
+                city: 'jakarta'
+            }
+        });
+        console.log(weatherRes);
+
+        if(weatherRes.err) throw weatherRes.err
+         
+    } catch(err) {
         throw err;
     }
 }

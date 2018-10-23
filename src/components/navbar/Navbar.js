@@ -9,9 +9,10 @@ class Navbar extends Component {
                 <View>
                     <Header
                         leftComponent={{ icon: 'arrow-forward', color: '#fff' }}
-                        centerComponent={{ text: 'Brome', style: { color: '#fff' } }}
+                        centerComponent={{ text: 'BROME', style: { color: '#fff', fontWeight: 'bold' } }}
                         rightComponent={{ icon: 'home', color: '#fff' }}
-                        outerContainerStyles={{ backgroundColor: '#000000'}}
+                        backgroundColor= '#e6b7c1'
+                        containerStyle={{height: 65}}
                     />
                 </View>
         )

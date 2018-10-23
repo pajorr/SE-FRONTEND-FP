@@ -11,9 +11,10 @@
     "@babel/runtime": "^7.1.2",
     "es6-promise": "^4.2.5",
     "frisbee": "^2.0.5",
+    "moment": "^2.22.2",
     "react": "16.5.0",
     "react-native": "0.57.1",
-    "react-native-elements": "^1.0.0-beta5",
+    "react-native-elements": "^1.0.0-beta7",
     "react-native-vector-icons": "^5.0.0",
     "react-navigation": "^2.17.0"
   },

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import {Input, Button, Avatar} from 'react-native-elements';
-import {View, Text, StyleSheet} from 'react-native';
+import {Input, Button, Avatar, Badge} from 'react-native-elements';
+import {View, Text, StyleSheet, Image} from 'react-native';
 import {HandleLogin, HandleRegister} from "../../../router/frisbeeConfig";
 
 class Signup extends Component {
@@ -16,13 +16,16 @@ class Signup extends Component {
     render() {
         return (
             <View style={styles.components}>
-
+                <Image style={{height: '40%'}}
+                       source={require('./../../assets/BromeLogo.png')}
+                       resizeMode='contain'
+                />
+                <Text h4 style={{paddingRight: 220, color:'#23232b', fontWeight: 'bold'}}>E-MAIL</Text>
                 <View style={styles.input}>
                     <Input
-                        placeholder='Username'
                         leftIcon={
                             <Icon
-                                name='user'
+                                name='envelope-o'
                                 size={24}
                                 color='black'
                             />
@@ -30,15 +33,16 @@ class Signup extends Component {
                         ref="usernameValue"
                         onChangeText={(usernameValue) => this.setState({usernameValue})}
                         value={this.state.usernameValue}
+                        inputContainerStyle={{borderBottomWidth: 0}}
                     />
                 </View>
+                <Text h4 style={{paddingRight: 200, color:'#23232b', fontWeight: 'bold'}}>USERNAME</Text>
 
                 <View style={styles.input}>
                     <Input
-                        placeholder='Name'
                         leftIcon={
                             <Icon
-                                name='key'
+                                name='user'
                                 size={24}
                                 color='black'
                             />
@@ -46,15 +50,16 @@ class Signup extends Component {
                         ref="nameValue"
                         onChangeText={(nameValue) => this.setState({nameValue})}
                         value={this.state.nameValue}
+                        inputContainerStyle={{borderBottomWidth: 0}}
                     />
                 </View>
+                <Text h4 style={{paddingRight: 200, color:'#23232b', fontWeight: 'bold'}}>PASSWORD</Text>
 
                 <View style={styles.input}>
                     <Input
-                        placeholder='Password'
                         leftIcon={
                             <Icon
-                                name='key'
+                                name='lock'
                                 size={24}
                                 color='black'
                             />
@@ -62,14 +67,15 @@ class Signup extends Component {
                         ref="passwordValue"
                         onChangeText={(passwordValue) => this.setState({passwordValue})}
                         value={this.state.passwordValue}
+                        inputContainerStyle={{borderBottomWidth: 0}}
                     />
                 </View>
 
                 <View style={styles.button}>
-                    <Button
-                        title='Sign Up'
-                        buttonStyle={{
-                            backgroundColor: '#000000'
+                    <Badge
+                        value={'Sign Up'}
+                        containerStyle={{
+                            backgroundColor: '#e6b7c1'
                         }}
                         onPress={(async () => {
                             await HandleRegister(this.state.usernameValue, this.state.nameValue, this.state.passwordValue);
@@ -90,12 +96,17 @@ const styles = StyleSheet.create({
     },
 
     input: {
-        width: '80%',
-        paddingTop: 15
+        width: '70%',
+        height: 50,
+        textAlign: 'center',
+        borderWidth: 2,
+        borderColor: '#82569c',
+        borderRadius: 20,
+        margin: 10
     },
 
     button: {
-        width: '50%',
+        width: '60%',
         paddingTop: 25,
         paddingBottom: 25
     }

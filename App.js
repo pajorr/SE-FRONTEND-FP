@@ -24,6 +24,6 @@ const styles = StyleSheet.create({
     },
 
     nav: {
-        position: 'absolute'
+        position: 'absolute',
     }
 })

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {ScrollView, Image, View, StyleSheet, Text} from 'react-native';
 import {Slider, Avatar} from 'react-native-elements';
 import IconVariable from 'react-native-vector-icons/MaterialCommunityIcons';
+import {MusicPause} from "../../../router/frisbeeConfig";
 
 
 class Music extends Component {
@@ -15,7 +16,7 @@ class Music extends Component {
         return (
             <ScrollView contentContainerStyle>
 
-                <View style={{flex: 1, flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
+                <View style={{flex: 1, flexDirection: 'column', alignItems: 'center', justifyContent: 'center', paddingTop: 75}}>
                     <Image
                         style={{width: 250, height: 250}}
                         source={{uri: 'https://t2.genius.com/unsafe/300x300/https%3A%2F%2Fimages.genius.com%2F8fa9901829dbbc896a97502f34736087.500x500x1.jpg'}}
@@ -28,18 +29,7 @@ class Music extends Component {
                 <Text style={{textAlign: 'center', fontSize: 15}}> Blackbear
                 </Text>
 
-                <View style={{flex: 1, flexDirection: 'row', alignItems: 'stretch', justifyContent: 'center'}}>
-                    <View>
-                        <Slider style={{alignItems: 'stretch', justifyContent: 'center'}}
-                                value={this.state.songPlayTime}
-                                onValueChange={(val) => this.setState({songPlayTime: val})} />
-                    </View>
-
-                    <View>
-                        <Text style={{textAlign: 'right'}}>Value: {this.state.songPlayTime}</Text>
-                    </View>
-                </View>
-
+            <View style={{alignItems: 'center'}}>
                 <View style={styles.musicButtons}>
                     <View style={styles.container}>
                         <IconVariable name='shuffle' size={25}
@@ -54,6 +44,7 @@ class Music extends Component {
 
                     <View style={styles.container}>
                         <IconVariable name='play' size={50}
+                         onPress={MusicPause}
                         />
                     </View>
 
@@ -68,6 +59,7 @@ class Music extends Component {
                         />
                     </View>
                 </View>
+            </View>
             </ScrollView>
 
         )

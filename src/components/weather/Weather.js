@@ -3,20 +3,21 @@ import {View, Image, StyleSheet, Text} from 'react-native';
 import Icon from "react-native-vector-icons/Feather";
 import MatIcon from "react-native-vector-icons/MaterialIcons";
 import MateriallyIcon from "react-native-vector-icons/MaterialCommunityIcons";
+import {
+    weatherRes
+} from "../../../router/frisbeeConfig";
 
 class Weather extends Component {
     render() {
         return(
             <View style={styles.wrap}>
-                <Image source={{uri: 'https://www.setaswall.com/wp-content/uploads/2017/10/Blur-Background-6z-Wallpaper-1080x1920.jpg'}} style={styles.backgroundImage} />
                     <View style={styles.itemWrap}>
-                        <MatIcon name='location-on' size={20} style={{textAlign: 'center', marginTop: 20, color:'#ebebeb'}}/>
-                        <Text style={styles.locationName}>Jakarta</Text>
-                        <Text style={styles.presentDate}>10/10/2018</Text>
-                        <Text style={styles.degree}><Icon name='sun' size={30} style={{color: 'orange'}}/>69&deg;</Text>
-                        <Text style={styles.feelsLike}>Feels like 80&deg;</Text>
+                        <MatIcon name='location-on' size={20} style={{textAlign: 'center', marginTop: 20, color:'#23232b'}}/>
+                        <Text style={styles.locationName}>{weatherRes.body.data.city.name}</Text>
+                        <Text style={styles.presentDate}>{weatherRes.body.data.lastUpdate.date}</Text>
+                        <Text style={styles.degree}><Icon name='sun' size={30} style={{color: 'orange'}}/>{weatherRes.body.data.temperature.now.value}°C</Text>
                         <View style={styles.seperator}/>
-                        <Text style={styles.locationName}>Hourly</Text>
+                        <Text style={styles.locationName}>{weatherRes.body.data.weather.description}</Text>
                         <Text style={{marginTop: 20}}>
                             <MateriallyIcon name='weather-cloudy' size={20} style={{color: 'white'}}/>
                             <MateriallyIcon name='weather-cloudy' size={20} style={{color: 'white'}}/>
@@ -36,26 +37,26 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 60,
         marginTop: 20,
-        color: '#ebebeb'
+        color: '#23232b'
     },
 
     locationName: {
         textAlign: 'center',
         fontSize: 20,
-        color: '#ebebeb'
+        color: '#23232b'
     },
 
     presentDate: {
         textAlign: 'center',
         fontSize: 10,
-        color: '#ebebeb'
+        color: '#23232b'
     },
 
     feelsLike: {
         textAlign: 'center',
         fontSize: 15,
         marginTop: 20,
-        color: '#ebebeb'
+        color: '#23232b'
     },
     wrap: {
         flex: 1,
@@ -75,7 +76,7 @@ const styles = StyleSheet.create({
         marginLeft: '27%'
     },
     seperator: {
-        borderBottomColor: '#ebebeb',
+        borderBottomColor: '#23232b',
         borderBottomWidth: 1,
         alignSelf: 'stretch',
         marginTop: 20,

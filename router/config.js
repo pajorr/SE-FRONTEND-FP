@@ -11,6 +11,7 @@ import Lights from "./../src/components/connections/lights/Lights";
 import {ScrollView, StyleSheet, Text, View} from "react-native";
 import {Avatar, Button, ListItem} from "react-native-elements";
 import Infrared from "../src/components/connections/infrared/Infrared";
+import ReminderToday from "../src/components/reminder/ReminderToday";
 
 export const SidebarRouter = createDrawerNavigator({
     Home: {
@@ -47,6 +48,10 @@ export const SidebarRouter = createDrawerNavigator({
     },
     Infrared: {
         screen: Infrared,
+        navigationOptions: {header: null}
+    },
+    ReminderToday: {
+        screen: ReminderToday,
         navigationOptions: {header: null}
     }
 
