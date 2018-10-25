@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {Input, Button, Avatar, Badge, Tile} from 'react-native-elements';
-import {View, Text, StyleSheet, Image} from 'react-native';
+import {View, Text, StyleSheet, Image, Alert} from 'react-native';
 import {HandleLogin, HandleWeather} from "../../../router/frisbeeConfig";
 
 class Login extends Component {
@@ -67,6 +67,14 @@ class Login extends Component {
                         }}
                         onPress={(async () => {
                             await HandleLogin(this.state.usernameValue, this.state.passwordValue);
+                            Alert.alert(
+                                '',
+                                'Login Successful',
+                                [
+                                    {text: 'OK', onPress: () => console.log('OK Pressed')},
+                                ],
+                                { cancelable: false }
+                            )
                             return this.props.navigation.navigate('Home')
                         })}
 

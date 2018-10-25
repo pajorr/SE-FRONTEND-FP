@@ -13,7 +13,7 @@ import {Avatar, Button, ListItem} from "react-native-elements";
 import Infrared from "../src/components/connections/infrared/Infrared";
 import ReminderToday from "../src/components/reminder/ReminderToday";
 
-export const SidebarRouter = createDrawerNavigator({
+export const SidebarRouter = createStackNavigator({
     Home: {
         screen: Home,
         navigationOptions: {header: null}

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Image, StyleSheet, Text} from 'react-native';
+import {View, Image, StyleSheet, Text, Alert} from 'react-native';
 import {Button, Card, Icon} from "react-native-elements";
 import {TelevisionOn, TelevisionOff} from "../../../../router/frisbeeConfig";
 

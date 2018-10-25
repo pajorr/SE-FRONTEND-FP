@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {Input, Button, Avatar, Badge} from 'react-native-elements';
-import {View, Text, StyleSheet, Image} from 'react-native';
+import {View, Text, StyleSheet, Image, Alert} from 'react-native';
 import {HandleLogin, HandleRegister} from "../../../router/frisbeeConfig";
 
 class Signup extends Component {
@@ -79,6 +79,14 @@ class Signup extends Component {
                         }}
                         onPress={(async () => {
                             await HandleRegister(this.state.usernameValue, this.state.nameValue, this.state.passwordValue);
+                            Alert.alert(
+                                '',
+                                'Login Successful',
+                                [
+                                    {text: 'OK', onPress: () => console.log('OK Pressed')},
+                                ],
+                                { cancelable: false }
+                            )
                             return this.props.navigation.navigate('Login')
                         })}
                     />

@@ -65,6 +65,7 @@ export async function HandleRegister(email, name, password) {
 
 export async function LightsOn() {
     try {
+        console.log('started light on');
         let res = await api.post('/device/lighton', {
             body: {
                 status: 'light on'
@@ -81,6 +82,7 @@ export async function LightsOn() {
 
 export async function LightsOff() {
     try {
+        console.log('started light off');
         let res = await api.post('/device/lightoff', {
             body: {
                 status: 'light off'
@@ -159,8 +161,6 @@ export async function MusicNext() {
 
         console.log('response', res.body);
 
-        if (res.err) throw res.err;
-
     } catch (err) {
         throw err;
     }
@@ -220,7 +220,7 @@ export async function TrackRepeat() {
 
 export async function HandleReminder(id) {
     try {
-        reminderRes = await api.get('/schedule/all', {
+        reminderRes = await api.get('/schedule/today', {
             body: {
                 user_id : id
             }

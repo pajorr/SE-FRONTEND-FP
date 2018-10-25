@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {View, Image, StyleSheet, Text} from 'react-native';
+import {Card} from 'react-native-elements';
 import Icon from "react-native-vector-icons/Feather";
 import MatIcon from "react-native-vector-icons/MaterialIcons";
 import MateriallyIcon from "react-native-vector-icons/MaterialCommunityIcons";
@@ -10,19 +11,16 @@ import {
 class Weather extends Component {
     render() {
         return(
-            <View style={styles.wrap}>
-                    <View style={styles.itemWrap}>
-                        <MatIcon name='location-on' size={20} style={{textAlign: 'center', marginTop: 20, color:'#23232b'}}/>
-                        <Text style={styles.locationName}>{weatherRes.body.data.city.name}</Text>
-                        <Text style={styles.presentDate}>{weatherRes.body.data.lastUpdate.date}</Text>
-                        <Text style={styles.degree}><Icon name='sun' size={30} style={{color: 'orange'}}/>{weatherRes.body.data.temperature.now.value}°C</Text>
-                        <View style={styles.seperator}/>
-                        <Text style={styles.locationName}>{weatherRes.body.data.weather.description}</Text>
-                        <Text style={{marginTop: 20}}>
-                            <MateriallyIcon name='weather-cloudy' size={20} style={{color: 'white'}}/>
-                            <MateriallyIcon name='weather-cloudy' size={20} style={{color: 'white'}}/>
-                            <MateriallyIcon name='weather-cloudy' size={20} style={{color: 'white'}}/>
-                        </Text>
+            <View>
+                    <View>
+                        <Card>
+                            <MatIcon name='location-on' size={20} style={{textAlign: 'center', marginTop: 20, color:'#23232b'}}/>
+                            <Text style={styles.locationName}>{weatherRes.body.data.city.name}</Text>
+                            <Text style={styles.presentDate}>{weatherRes.body.data.lastUpdate.date}</Text>
+                            <Text style={styles.degree}><Icon name='sun' size={30} style={{color: 'orange'}}/>{weatherRes.body.data.temperature.now.value}°C</Text>
+                            <View style={styles.seperator}/>
+                            <Text style={styles.locationName}>{weatherRes.body.data.weather.description}</Text>
+                        </Card>
                     </View>
             </View>
         )
@@ -59,21 +57,15 @@ const styles = StyleSheet.create({
         color: '#23232b'
     },
     wrap: {
-        flex: 1,
         flexDirection: 'column',
-    },
-    backgroundImage: {
-        flex: 1,
-        width: null,
-        height: null,
-        resizeMode: 'cover'
+        width: '100%'
     },
     itemWrap: {
-        flex: 1,
+        width: '100%',
         justifyContent: 'center',
+        alignSelf: 'stretch',
         alignItems: 'center',
         position: 'absolute',
-        marginLeft: '27%'
     },
     seperator: {
         borderBottomColor: '#23232b',

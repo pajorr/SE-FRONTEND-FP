@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {ScrollView, Image, View, StyleSheet, Text} from 'react-native';
 import {Slider, Avatar} from 'react-native-elements';
 import IconVariable from 'react-native-vector-icons/MaterialCommunityIcons';
-import {MusicPause} from "../../../router/frisbeeConfig";
+import {MusicPause, MusicNext, MusicPlay, MusicPrevious} from "../../../router/frisbeeConfig";
 
 
 class Music extends Component {
@@ -23,10 +23,10 @@ class Music extends Component {
                     />
                 </View>
 
-                <Text style={{textAlign: 'center', fontWeight: 'bold', marginTop: 20, fontSize: 20}}> Girls Like U
+                <Text style={{textAlign: 'center', fontWeight: 'bold', marginTop: 20, fontSize: 20}}> SONG_NAME
                 </Text>
 
-                <Text style={{textAlign: 'center', fontSize: 15}}> Blackbear
+                <Text style={{textAlign: 'center', fontSize: 15}}> ARTIST_NAME
                 </Text>
 
             <View style={{alignItems: 'center'}}>
@@ -38,19 +38,26 @@ class Music extends Component {
 
                     <View style={styles.container}>
                         <IconVariable name='skip-previous' size={50}
+                         onPress={MusicPrevious}
                         />
                     </View>
 
 
                     <View style={styles.container}>
                         <IconVariable name='play' size={50}
+                         onPress={MusicPlay}
+                        />
+                    </View>
+
+                    <View style={styles.container}>
+                        <IconVariable name='pause' size={50}
                          onPress={MusicPause}
                         />
                     </View>
 
-
                     <View style={styles.container}>
                         <IconVariable name='skip-next' size={50}
+                         onPress={MusicNext}
                         />
                     </View>
 
